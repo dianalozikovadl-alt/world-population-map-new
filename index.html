@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World People Map</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">🌍</div>
+      <div>
+        <h1>World People Map</h1>
+        <p>Интерактивная карта участников</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-card">
+      <div class="section-head">
+        <div>
+          <h2>Карта участников</h2>
+          <p>Выберите страну, чтобы увидеть количество участников.</p>
+        </div>
+        <div class="legend"><span></span> Количество участников</div>
+      </div>
+      <div id="map"></div>
+    </section>
+
+    <aside class="sidebar">
+      <section class="card form-card">
+        <h2>Добавить участника</h2>
+        <p class="muted">Заполните данные, чтобы участник появился в общей статистике.</p>
+
+        <form id="participant-form">
+          <label>
+            Страна
+            <select id="country" required>
+              <option value="">Выберите страну</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Пол</legend>
+            <div class="gender-grid">
+              <label class="choice"><input type="radio" name="gender" value="male" required><span>Мужской</span></label>
+              <label class="choice"><input type="radio" name="gender" value="female"><span>Женский</span></label>
+            </div>
+          </fieldset>
+
+          <label>
+            Должность
+            <select id="position" required>
+              <option value="">Выберите категорию</option>
+              <option>Руководство и менеджмент</option>
+              <option>HR и управление персоналом</option>
+              <option>Обучение и развитие</option>
+              <option>Административные и экспертные позиции</option>
+              <option>Продажи и клиентский сервис</option>
+              <option>Другое</option>
+            </select>
+          </label>
+
+          <button type="submit" class="primary">Добавить участника</button>
+          <button type="button" id="reset-data" class="secondary">Очистить тестовые данные</button>
+        </form>
+      </section>
+
+      <section class="card stats-card">
+        <div class="section-head compact">
+          <h2>Общая статистика</h2>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat"><span>Всего</span><strong id="total">0</strong></div>
+          <div class="stat"><span>Мужчины</span><strong id="male">0</strong></div>
+          <div class="stat"><span>Женщины</span><strong id="female">0</strong></div>
+        </div>
+
+        <div class="stats-block">
+          <h3>Топ стран</h3>
+          <div id="top-countries" class="ranking"></div>
+        </div>
+
+        <div class="stats-block">
+          <h3>Распределение по должностям</h3>
+          <div id="positions" class="ranking"></div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>Новый самостоятельный проект · данные этого браузера хранятся локально</footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #18212f;
+  --muted: #6d7786;
+  --line: #e4e9f0;
+  --accent: #315efb;
+  --accent-dark: #244bd0;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 28px;
+}
+.brand { display:flex; align-items:center; gap:12px; max-width:1500px; margin:auto; }
+.brand-mark { font-size:32px; }
+h1,h2,h3,p { margin-top:0; }
+h1 { font-size:20px; margin-bottom:3px; }
+.brand p { margin:0; color:var(--muted); font-size:13px; }
+.layout {
+  max-width: 1500px;
+  margin: 24px auto;
+  padding: 0 20px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 400px;
+  gap:20px;
+}
+.map-card,.card { background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:0 5px 22px rgba(27,39,61,.05); }
+.map-card { overflow:hidden; }
+.section-head { padding:20px 22px 14px; display:flex; align-items:center; justify-content:space-between; gap:15px; }
+.section-head.compact { padding:0 0 15px; }
+h2 { font-size:18px; margin-bottom:5px; }
+.section-head p,.muted { color:var(--muted); font-size:13px; margin-bottom:0; }
+.legend { color:var(--muted); font-size:12px; display:flex; align-items:center; gap:7px; }
+.legend span { width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block; }
+#map { height:700px; width:100%; background:#eaf1f8; }
+.sidebar { display:flex; flex-direction:column; gap:20px; }
+.card { padding:22px; }
+.form-card h2 { margin-bottom:4px; }
+form { display:flex; flex-direction:column; gap:16px; margin-top:20px; }
+label, legend { font-size:13px; font-weight:650; }
+select {
+  width:100%; margin-top:7px; border:1px solid #d8dee8; background:#fff;
+  padding:12px 13px; border-radius:10px; font:inherit; color:var(--text);
+}
+select:focus { outline:2px solid rgba(49,94,251,.18); border-color:var(--accent); }
+fieldset { border:0; padding:0; margin:0; }
+legend { margin-bottom:7px; }
+.gender-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.choice { cursor:pointer; }
+.choice input { position:absolute; opacity:0; }
+.choice span {
+  display:block; border:1px solid #d8dee8; padding:11px 12px; border-radius:10px;
+  text-align:center; font-weight:600; background:#fff;
+}
+.choice input:checked + span { border-color:var(--accent); background:#eef2ff; color:var(--accent-dark); }
+button { border:0; border-radius:10px; padding:12px 15px; font:inherit; font-weight:700; cursor:pointer; }
+.primary { color:#fff; background:var(--accent); }
+.primary:hover { background:var(--accent-dark); }
+.primary:disabled { opacity:.65; cursor:wait; }
+.secondary { background:#f2f4f8; color:#475264; }
+.stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.stat { border:1px solid var(--line); border-radius:12px; padding:13px 10px; text-align:center; }
+.stat span { display:block; color:var(--muted); font-size:11px; }
+.stat strong { display:block; font-size:24px; margin-top:3px; }
+.stats-block { margin-top:22px; }
+.stats-block h3 { font-size:14px; margin-bottom:10px; }
+.ranking { display:flex; flex-direction:column; gap:8px; }
+.rank-row { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; }
+.rank-label { font-size:12px; color:#3d4654; }
+.rank-value { font-size:12px; font-weight:750; }
+.rank-bar { grid-column:1 / -1; height:6px; border-radius:99px; background:#edf0f5; overflow:hidden; margin-top:-4px; }
+.rank-bar span { display:block; height:100%; background:var(--accent); border-radius:99px; }
+footer { max-width:1500px; margin:0 auto; padding:0 20px 24px; color:var(--muted); font-size:12px; }
+.country-popup h4 { margin:0 0 5px; font-size:14px; }
+.country-popup p { margin:0; color:#5e6877; font-size:12px; }
+@media (max-width: 1050px) {
+  .layout { grid-template-columns:1fr; }
+  #map { height:560px; }
+  .sidebar { display:grid; grid-template-columns:1fr 1fr; align-items:start; }
+}
+@media (max-width: 700px) {
+  .topbar { padding:14px 16px; }
+  .layout { margin:14px auto; padding:0 12px; }
+  .sidebar { display:flex; }
+  .section-head { padding:16px; align-items:flex-start; flex-direction:column; }
+  #map { height:430px; }
+  .card { padding:17px; }
+}
